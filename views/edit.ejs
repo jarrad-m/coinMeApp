@@ -1,0 +1,66 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Coin me App - Bitcoin and altcoin trade tracking and analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <style>
+        body        { padding-top:80px; word-wrap:break-word; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Edit trade</h1>
+        <p>Trade Id: <%= trade._id %></p>
+        <a href="/profile" class="btn btn-default btn-sm">back to Profile</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+
+    </div>
+
+    <div class="row">        
+        <div class="col-sm-3 ">
+            <div class="">
+                <form id="formAddTrade" name="addTrade" method="post" action="/update">
+                    <input type="hidden"  id="userid"  name="userid" value="<%= user._id %>">
+                    <input type="hidden" id="inputTradeId" name="tradeId" value="<%= trade._id %>">
+                    <div class="form-group">
+                        <label class="control-label" for="date">Date</label>
+                        <input data-provide="datepicker" class="form-control" id="date" name="date" value='<%= trade.date %>' type="text" data-date-today-highlight="true" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputCoin">Coin/Token</label>
+                        <input  class="form-control" id="inputCoin" type="text" placeholder="BTC" name="coin" value='<%= trade.coin %>'style="text-transform: uppercase" required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputEntryRating">Entry Rating</label>
+                        <input  class="form-control" id="inputEntryRating" type="number" name="entryRating" min="0" max="10" value='<%= trade.entryRating %>' required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputExitRating">Exit Rating</label>
+                        <input  class="form-control" id="inputExitRating" type="number" name="exitRating" min="0" max="10" value='<%= trade.exitRating %>' required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputCoin">Comments</label>
+                        <input  class="form-control" id="inputComments" type="text" name="comments" value='<%= trade.comments %>'/>                     
+                    </div>                        
+                    <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

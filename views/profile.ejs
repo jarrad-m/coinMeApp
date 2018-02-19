@@ -1,0 +1,122 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Coin me App - Bitcoin and altcoin trade tracking and analysis</title>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+      
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <style>
+        body        { padding-top:80px; word-wrap:break-word; }
+    </style>
+    <script> // Alert Slide up functions
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove(); 
+                }); }, 4000);
+            
+            // Initialize tooltip plugin
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+
+    </script>
+   
+</head>
+<body>
+<div class="container">
+    <% if (typeof errorString !== 'undefined') { %>
+         <div class="alert alert-warning" role="alert">
+            <button class="close" data-dismiss="alert" aria-label="close">&times;</button>
+            <strong>Warning!</strong> <%= errorString %>
+         </div>
+       
+    <% } %>
+    <% if (typeof successString !== 'undefined') { %>            
+        <div class="alert alert-success" role="alert">
+            <button class="close" data-dismiss="alert" aria-label="close">&times;</button>
+            <strong>Success!</strong> <%= successString %>
+         </div>
+    <% } %>
+
+    
+    <div class="page-header text-center">
+        <h1>Profile Page</h1>
+        <p>Welcome back, <%= user.facebook.name %></p>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row justify-content-between">
+
+        <div class="col-4">
+            <h3 class="text-secondary"> Add New Trade</h3>
+            <form id="formAddTrade" name="addTrade" method="post" action="/new">
+                <input type="hidden"  id="userid" value="<%= user._id %>" name="userid">
+                <div class="form-group">
+                    <label class="control-label" for="date">Date</label>
+                    <input data-provide="datepicker" class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" data-date-today-highlight="true" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputCoin">Coin/Token</label>
+                    <input  class="form-control" id="inputCoin" type="text" placeholder="BTC" name="coin" style="text-transform: uppercase" required/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputEntryRating">Entry Rating <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rate your entry position score out of 10"><small>?</small></a></label>
+                    <input  class="form-control" id="inputEntryRating" type="number" name="entryRating" min="0" max="10" required/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputExitRating">Exit Rating <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rate your exit position score out of 10"><small>?</small></a></label>
+                    <input  class="form-control" id="inputExitRating" type="number" name="exitRating" min="0" max="10" required/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputCoin">Comments</label>
+                    <input  class="form-control" id="inputComments" type="text" name="comments"/>                     
+                </div>                        
+                <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
+            </form>
+        </div>        
+        <div class="col-8">                       
+            <h3 class="text-secondary"> Trades</h3>
+            <table class="table table-responsive table-hover">
+                <thead class="">
+                    <tr>
+                      <th scope="col">Date </th>
+                      <th scope="col">Coin</th>
+                      <th scope="col">Entry Rating</th>
+                      <th scope="col">Exit Rating</th>
+                      <th scope="col">Comments</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                </thead>                        
+                <tbody>
+                <% for(var i=trades.length-1; i >= 0; i--) {%>
+                    <tr>
+                      <th scope="row"><%= trades[i].date %></th>
+                      <td><%= trades[i].coin %></td>
+                      <td class="text-right"><%= trades[i].entryRating %></td>
+                      <td class="text-right" ><%= trades[i].exitRating %></td>
+                      <td class="text-right"><%= trades[i].comments %></td>
+                      <td class="text-right"><a class="btn btn-sm" href="/edit/<%= trades[i]._id %>"><i class="fa fa-edit"></i></a></td>
+                      <td class="text-right"><a class="btn btn-sm" href="/delete/<%= trades[i]._id %>"><i class="fa fa-trash-o" style="color:red"></i></a></td>
+                    </tr>
+                <% } %> 
+                </tbody>                
+            </table>
+            <% if (trades.length == 0) { %>
+                    <p>There doesn't seem to be any trades here. Enter details in the 'Add New Trade' form </p>
+            <% } %>
+        </div>
+        
+    </div>
+
+</div>
+</body>
+</html>
