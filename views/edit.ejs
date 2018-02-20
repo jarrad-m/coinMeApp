@@ -12,7 +12,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <style>
-        body        { padding-top:80px; word-wrap:break-word; }
+        body        { padding-top:40px; word-wrap:break-word; font-size: 0.875rem;}
     </style>
 </head>
 <body>
@@ -28,8 +28,9 @@
     </div>
 
     <div class="row">        
-        <div class="col-sm-3 ">
-            <div class="">
+        <div class="col-12 col-lg-3 card mt-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"> Edit Trade</h5>
                 <form id="formAddTrade" name="addTrade" method="post" action="/update">
                     <input type="hidden"  id="userid"  name="userid" value="<%= user._id %>">
                     <input type="hidden" id="inputTradeId" name="tradeId" value="<%= trade._id %>">
@@ -55,11 +56,16 @@
                     </div>                        
                     <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
                 </form>
-
             </div>
         </div>
-
     </div>
+
+    <!-- Footer -->
+    <footer class="text-muted">
+        <div class="container text-center">            
+                <p>Coded by Jarradm</p>            
+        </div>
+    </footer>
 
 </div>
 </body>

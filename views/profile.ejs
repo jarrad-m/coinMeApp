@@ -14,7 +14,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <style>
-        body        { padding-top:80px; word-wrap:break-word; }
+        body        { padding-top:40px; word-wrap:break-word; font-size: 0.875rem;}
     </style>
     <script> // Alert Slide up functions
             window.setTimeout(function() {
@@ -55,67 +55,77 @@
 
     <div class="row justify-content-between">
 
-        <div class="col-4">
-            <h3 class="text-secondary"> Add New Trade</h3>
-            <form id="formAddTrade" name="addTrade" method="post" action="/new">
-                <input type="hidden"  id="userid" value="<%= user._id %>" name="userid">
-                <div class="form-group">
-                    <label class="control-label" for="date">Date</label>
-                    <input data-provide="datepicker" class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" data-date-today-highlight="true" required />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputCoin">Coin/Token</label>
-                    <input  class="form-control" id="inputCoin" type="text" placeholder="BTC" name="coin" style="text-transform: uppercase" required/>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputEntryRating">Entry Rating <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rate your entry position score out of 10"><small>?</small></a></label>
-                    <input  class="form-control" id="inputEntryRating" type="number" name="entryRating" min="0" max="10" required/>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputExitRating">Exit Rating <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rate your exit position score out of 10"><small>?</small></a></label>
-                    <input  class="form-control" id="inputExitRating" type="number" name="exitRating" min="0" max="10" required/>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputCoin">Comments</label>
-                    <input  class="form-control" id="inputComments" type="text" name="comments"/>                     
-                </div>                        
-                <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
-            </form>
+        <div class="col-12 col-lg-3 card mt-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"> Add New Trade</h5>
+                <form id="formAddTrade" name="addTrade" method="post" action="/new">
+                    <input type="hidden"  id="userid" value="<%= user._id %>" name="userid">
+                    <div class="form-group">
+                        <label class="control-label" for="date">Date</label>
+                        <input data-provide="datepicker" class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" data-date-today-highlight="true" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputCoin">Coin/Token</label>
+                        <input  class="form-control" id="inputCoin" type="text" placeholder="BTC" name="coin" style="text-transform: uppercase" required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputEntryRating">Entry Rating <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rate your entry position score out of 10"><small>?</small></a></label>
+                        <input  class="form-control" id="inputEntryRating" type="number" name="entryRating" min="0" max="10" required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputExitRating">Exit Rating <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rate your exit position score out of 10"><small>?</small></a></label>
+                        <input  class="form-control" id="inputExitRating" type="number" name="exitRating" min="0" max="10" required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputCoin">Comments</label>
+                        <input  class="form-control" id="inputComments" type="text" name="comments"/>                     
+                    </div>                        
+                    <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
+                </form>
+            </div>
         </div>        
-        <div class="col-8">                       
-            <h3 class="text-secondary"> Trades</h3>
-            <table class="table table-responsive table-hover">
-                <thead class="">
-                    <tr>
-                      <th scope="col">Date </th>
-                      <th scope="col">Coin</th>
-                      <th scope="col">Entry Rating</th>
-                      <th scope="col">Exit Rating</th>
-                      <th scope="col">Comments</th>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
-                    </tr>
-                </thead>                        
-                <tbody>
-                <% for(var i=trades.length-1; i >= 0; i--) {%>
-                    <tr>
-                      <th scope="row"><%= trades[i].date %></th>
-                      <td><%= trades[i].coin %></td>
-                      <td class="text-right"><%= trades[i].entryRating %></td>
-                      <td class="text-right" ><%= trades[i].exitRating %></td>
-                      <td class="text-right"><%= trades[i].comments %></td>
-                      <td class="text-right"><a class="btn btn-sm" href="/edit/<%= trades[i]._id %>"><i class="fa fa-edit"></i></a></td>
-                      <td class="text-right"><a class="btn btn-sm" href="/delete/<%= trades[i]._id %>"><i class="fa fa-trash-o" style="color:red"></i></a></td>
-                    </tr>
-                <% } %> 
-                </tbody>                
-            </table>
-            <% if (trades.length == 0) { %>
-                    <p>There doesn't seem to be any trades here. Enter details in the 'Add New Trade' form </p>
-            <% } %>
-        </div>
-        
+        <div class="col-12 col-lg-8 card mt-3 mb-3">
+            <div class="card-body">                    
+                <h5 class="card-title"> Trades</h5>
+                <table class="table table-sm table-hover table-responsive">
+                    <thead class="">
+                        <tr>
+                          <th class="d-none d-sm-table-cell" scope="col">Date </th>
+                          <th class="text-right" scope="col">Coin</th>
+                          <th class="text-right" scope="col">Entry Rating</th>
+                          <th class="text-right" scope="col">Exit Rating</th>
+                          <th class="text-right" scope="col">Comments</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                        </tr>
+                    </thead>                        
+                    <tbody>
+                    <% for(var i=trades.length-1; i >= 0; i--) {%>
+                        <tr>
+                          <th class="d-none d-sm-table-cell" scope="row"><%= trades[i].date %></th>
+                          <td class="text-right"><%= trades[i].coin %></td>
+                          <td class="text-right"><%= trades[i].entryRating %></td>
+                          <td class="text-right" ><%= trades[i].exitRating %></td>
+                          <td class="text-right"><%= trades[i].comments %></td>
+                          <td class="text-right"><a class="btn btn-sm" href="/edit/<%= trades[i]._id %>"><i class="fa fa-edit"></i></a></td>
+                          <td class="text-right"><a class="btn btn-sm" href="/delete/<%= trades[i]._id %>"><i class="fa fa-trash-o" style="color:red"></i></a></td>
+                        </tr>
+                    <% } %> 
+                    </tbody>                
+                </table>
+                <% if (trades.length == 0) { %>
+                        <p>There doesn't seem to be any trades here. Enter details in the 'Add New Trade' form </p>
+                <% } %>
+            </div>
+        </div>        
     </div>
+
+    <!-- Footer -->
+    <footer class="text-muted">
+        <div class="container text-center">            
+                <p>Coded by Jarradm</p>            
+        </div>
+    </footer>
 
 </div>
 </body>
