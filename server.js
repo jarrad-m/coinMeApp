@@ -6,12 +6,14 @@ var port     = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
+var path	 = require('path');
 
 var morgan         = require('morgan');
 var cookieParser   = require('cookie-parser');
 var bodyParser     = require('body-parser');
 var session        = require('express-session');
 var methodOverride = require('method-override'); //used to manipulate POST
+
 
 var configDB = require('./config/database.js');
 
@@ -38,6 +40,9 @@ app.use(function (err, req, res, next) {
    console.error(err.stack)
    res.status(404).render('edit.ejs')
 });
+
+// Set up static route
+app.use(express.static(path.join(__dirname, 'public')));
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
