@@ -35,14 +35,13 @@ app.use(session({ secret: 'thiscanbeanythinginparticular' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-// set up 404 page
-app.use(function (err, req, res, next) {
-   console.error(err.stack)
-   res.status(404).render('edit.ejs')
-});
 
 // Set up static route
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/css', express.static(__dirname + '/css'));
+
+
+
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport

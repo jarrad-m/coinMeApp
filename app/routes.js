@@ -189,6 +189,13 @@ module.exports = function(app, passport) {
         }
         
     });
+
+    // set up 404 page
+    app.use(function (err, req, res, next) {
+       console.error(err.stack)
+       res.status(404).render('edit.ejs')
+    });
+
         
 
 };
