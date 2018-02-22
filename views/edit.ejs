@@ -2,19 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Coin me App - Bitcoin and altcoin trade tracking and analysis</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">    
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-    <style>
-        body        { padding-top:40px; word-wrap:break-word; font-size: 0.875rem;}
-    </style>
+<%- include partials/htmlhead.ejs %> 
 </head>
 <body>
 <div class="container">
@@ -24,9 +12,7 @@
         <p>Trade Id: <%= trade._id %></p>
         <a href="/profile" class="btn btn-default btn-sm">back to Profile</a>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-
-
-    </div>
+   </div>
 
     <div class="row">        
         <div class="col-12 col-lg-3 card mt-3 mb-3">
@@ -60,14 +46,10 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Footer -->
-    <footer class="text-muted">
-        <div class="container text-center">            
-                <p>Coded by Jarradm</p>            
-        </div>
-    </footer>
-
+    <%- include partials/footer.ejs %>
+    <!-- -->
 </div>
 </body>
 </html>

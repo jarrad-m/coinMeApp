@@ -2,18 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Coin me App - Bitcoin and altcoin trade tracking and analysis</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">       
-    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>    
-    
-    <style>
-        body { 
-            padding-top:80px; 
-        }
-    </style>
+    <%- include partials/htmlhead.ejs %> 
 </head>
 <body>
 <div class="container">
@@ -21,19 +10,14 @@
     <div class="jumbotron text-center">
         <h1><i class="fa fa-btc"></i> CoinMeApp <i class="fa fa-btc"></i></h1>
         <h2>Bitcoin and altcoin trade tracking and analysis</h2>
-
         <p>Login or Register with:</p>
-
         <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
         
     </div>
 
     <!-- Footer -->
-    <footer class="text-muted">
-        <div class="container text-center">            
-                <p>Coded by Jarradm</p>            
-        </div>
-    </footer>
+    <%- include partials/footer.ejs %>
+    <!-- -->
 
 </div>
 </body>

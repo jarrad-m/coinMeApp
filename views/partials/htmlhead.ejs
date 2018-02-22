@@ -1,0 +1,35 @@
+<title>Coin me App - Bitcoin and altcoin trade tracking and analysis</title>    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<style>
+    body        { padding-top:40px; word-wrap:break-word; font-size: 0.875rem;}
+</style>
+<script>
+    // Alert Slide up functions
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove(); 
+        }); }, 4000);
+    
+    // Initialize tooltip plugin
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    // Scroll Animation
+    $(function() {
+        $("#scroll").click(function(e) {
+            var destination = $(this).attr('href');
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $(destination).offset().top
+            }, 500);
+        });
+    });
+</script>
