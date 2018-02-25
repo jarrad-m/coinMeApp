@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<%- include partials/htmlhead.ejs %>   
+</head>
+<body>
+	<div class="container">
+		<div class="page-header text-center">
+        	<h1>Guide</h1>
+        	<p>Explanations on how to use this App</p>
+        	<a href="/profile" class="btn btn-default">Home</a>
+        </div>
+
+        <div class="row justify-content-between">
+        <div class="col-12 col-lg-6 card mt-3 mb-3 mx-auto">
+            <div class="card-body">                    
+                <h4 class="card-title">What is this?</h4>
+                <p>Day traders need an objective way of journalling there trades. Over time, an honest analysis of good and bad trades will lead to a more successful, emotionless trading system.</p>
+                
+               	<img class="img-fluid" src="/images/chart_light.png" alt="trade chart">
+               	<p></p>
+                
+                
+                <h5>Entry Rating</h5>
+                <p>When you first buy a coin or token what price did you buy at? How was the timing of the buy into the "Entry Position". Could you have waited and bought it cheaper? Rate yourself a score out of 10. </p>
+
+                <h5>Exit Rating</h5>
+                <p>Likewise, when you sell the coin rate your exit position. Could you have waited longer for more profit? On a losing trade did you get out early enough?</p>
+                <p></p>
+
+                <h5>Technical Details</h5>
+                <p>Built using node.js, Express and Bootstrap on the front-end.</p>
+
+                
+            </div>
+        </div>
+
+	</div>
+
+    <!-- Footer -->
+   	<%- include partials/footer.ejs %>
+    <!-- -->
+</div>
+</body>
+</html>

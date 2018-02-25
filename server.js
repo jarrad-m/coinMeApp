@@ -39,6 +39,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // Set up static route
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(__dirname + '/css'));
+app.use('/images', express.static(__dirname + '/images'));
 
 
 

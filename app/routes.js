@@ -8,6 +8,10 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
+    app.get('/guide', function(req, res) {
+        res.render('guide.ejs');       
+    });
+
    
     // route for showing the profile page
     app.get('/profile', isLoggedIn, function(req, res) {

@@ -24,7 +24,8 @@
     <div class="page-header text-center">
         <h1>Profile Page</h1>
         <p>Welcome back, J.j. Mid</p>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/guide" class="btn btn-default">Guide</a>
+        <a href="/logout" class="btn btn-default">Logout</a>
     </div>
 
     <div class="row justify-content-between">
@@ -59,6 +60,7 @@
                 </table>
                 <% if (trades.length == 0) { %>
                         <p>There doesn't seem to be any trades here. Enter details in the <a id="scroll" href="#add-trade">Add Trade</a> form </p>
+                        <p>Don't know what's going on? Have a look at the <a href="guide/">guide</a> for an explanation</p>
                 <% } %>
             </div>
         </div>
@@ -88,7 +90,7 @@
                         <label class="control-label" for="inputCoin">Comments</label>
                         <input  class="form-control" id="inputComments" type="text" name="comments"/>                 
                     </div>                        
-                    <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
+                    <button class="btn btn-primary float-right" id="btnSubmit" type="submit">Submit</button>
                 </form>
             </div>
         </div>        

@@ -10,12 +10,13 @@
     <div class="page-header text-center">
         <h1>Edit trade</h1>
         <p>Trade Id: <%= trade._id %></p>
-        <a href="/profile" class="btn btn-default btn-sm">back to Profile</a>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/profile" class="btn btn-default">Home</a>
+        <a href="/guide" class="btn btn-default">Guide</a>
+        <a href="/logout" class="btn btn-default">Logout</a>
    </div>
 
     <div class="row">        
-        <div class="col-12 col-lg-3 card mt-3 mb-3">
+        <div class="col-12 col-lg-6 card mt-3 mb-3 mx-auto">
             <div class="card-body">
                 <h5 class="card-title"> Edit Trade</h5>
                 <form id="formAddTrade" name="addTrade" method="post" action="/update">
@@ -41,7 +42,7 @@
                         <label class="control-label" for="inputCoin">Comments</label>
                         <input  class="form-control" id="inputComments" type="text" name="comments" value='<%= trade.comments %>'/>                     
                     </div>                        
-                    <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
+                    <button class="btn btn-primary float-right" id="btnSubmit" type="submit">Submit</button>
                 </form>
             </div>
         </div>
